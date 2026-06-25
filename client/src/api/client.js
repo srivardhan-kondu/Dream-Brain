@@ -1,7 +1,8 @@
-// Thin fetch wrapper around the Dream Brain API. Uses relative /api URLs which
-// Vite proxies to the Express server in dev (see vite.config.js).
-
-const BASE = '/api';
+// Thin fetch wrapper around the Dream Brain API.
+// In dev, relative /api URLs are proxied to Express by Vite (see vite.config.js).
+// In production, set VITE_API_URL to the deployed API origin (e.g. your Render URL)
+// so the client talks to the backend across domains.
+const BASE = `${import.meta.env.VITE_API_URL ?? ''}/api`;
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE}${path}`, {

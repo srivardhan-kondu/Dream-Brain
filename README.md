@@ -178,6 +178,13 @@ npm run dev      # starts API + client together
 
 ---
 
+## ☁️ Deployment
+
+Deploy the API to **Render** and the client to **Vercel** (with MongoDB Atlas as the shared DB).
+See the full step-by-step walkthrough in **[DEPLOYMENT.md](DEPLOYMENT.md)** — covering env vars, CORS, seeding and cold-start gotchas.
+
+---
+
 ## 📡 API Reference
 
 | Method | Endpoint | Description |
