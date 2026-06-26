@@ -5,6 +5,8 @@ import { api } from '../api/client.js';
 import { useAssessment } from '../store/AssessmentContext.jsx';
 import TopBar from '../components/TopBar.jsx';
 import ScoreMeter from '../components/ScoreMeter.jsx';
+import BrainMap from '../components/BrainMap.jsx';
+import BrainErrorBoundary from '../components/BrainErrorBoundary.jsx';
 import { categoryColor, LABEL_STYLES } from '../lib/colors.js';
 
 const Brain3D = lazy(() => import('../components/Brain3D.jsx'));
@@ -120,9 +122,13 @@ export default function Results() {
           {view === 'brain' ? (
             <div className="grid items-center gap-8 lg:grid-cols-2">
               <div>
-                <Suspense fallback={<div className="flex h-[440px] items-center justify-center rounded-3xl bg-[#04020d] text-sm text-white/40">Loading 3D brain…</div>}>
-                  <Brain3D regions={report.regions} selectedKey={selected} onSelect={setSelected} />
-                </Suspense>
+                <BrainErrorBoundary
+                  fallback={<BrainMap regions={report.regions} selectedKey={selected} onSelect={setSelected} />}
+                >
+                  <Suspense fallback={<div className="flex h-[440px] items-center justify-center rounded-3xl bg-[#04020d] text-sm text-white/40">Loading 3D brain…</div>}>
+                    <Brain3D regions={report.regions} selectedKey={selected} onSelect={setSelected} />
+                  </Suspense>
+                </BrainErrorBoundary>
                 <div className="mt-4 flex flex-wrap justify-center gap-5 text-sm font-semibold text-slate-500">
                   {LEGEND.map((l) => (
                     <span key={l.key} className="flex items-center gap-2">
