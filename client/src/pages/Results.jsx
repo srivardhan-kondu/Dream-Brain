@@ -1,13 +1,13 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, lazy, Suspense } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { api } from '../api/client.js';
 import { useAssessment } from '../store/AssessmentContext.jsx';
 import TopBar from '../components/TopBar.jsx';
-import { lazy, Suspense } from 'react';
-const Brain3D = lazy(() => import('../components/Brain3D.jsx'));
 import ScoreMeter from '../components/ScoreMeter.jsx';
 import { categoryColor, LABEL_STYLES } from '../lib/colors.js';
+
+const Brain3D = lazy(() => import('../components/Brain3D.jsx'));
 
 const LEGEND = [
   { key: 'emotional', name: 'Emotional' },
