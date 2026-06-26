@@ -1,6 +1,6 @@
 import { useRef, Suspense, useMemo, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial, Environment, Html, Line } from '@react-three/drei';
+import { OrbitControls, Sphere, MeshDistortMaterial, Html, Line } from '@react-three/drei';
 import * as THREE from 'three';
 import { categoryColor } from '../lib/colors.js';
 
@@ -178,7 +178,6 @@ function Scene({ regions, selectedKey, onSelect }) {
             onPointerOut={() => setHoveredKey(null)}
           />
         ))}
-        <Environment preset="night" />
       </Suspense>
 
       <OrbitControls
