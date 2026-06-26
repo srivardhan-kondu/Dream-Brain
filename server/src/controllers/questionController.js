@@ -3,7 +3,7 @@ import { AGE_GROUPS } from '../data/catalog.js';
 
 const VALID_GROUPS = new Set(AGE_GROUPS.map((g) => g.key));
 
-const SESSION_SIZE = 10; // questions shown per attempt (UI: "Question 1 of 10")
+const SESSION_SIZE = 60; // full evaluation — all 60 questions for the age group
 
 function shuffle(arr) {
   const a = arr.slice();
