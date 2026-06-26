@@ -6,7 +6,7 @@ import { useAssessment } from '../store/AssessmentContext.jsx';
 import TopBar from '../components/TopBar.jsx';
 import CircularTimer from '../components/CircularTimer.jsx';
 
-const PER_QUESTION = 20; // seconds
+const PER_QUESTION = 10; // seconds
 
 export default function Quiz() {
   const navigate = useNavigate();
